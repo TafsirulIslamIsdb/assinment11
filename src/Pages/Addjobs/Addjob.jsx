@@ -4,8 +4,9 @@ import { AuthContext } from "../../providers/AuthProvider";
 
 
 const Addjob = () => {
-    const {usermail}=useContext(AuthContext)
-    console.log(usermail);
+    const { user } = useContext(AuthContext);
+    
+   
 
     const handleAddJobs = event => {
         event.preventDefault();
@@ -54,7 +55,8 @@ const Addjob = () => {
                         <input
                             type="text"
                             name="employerEmail"
-
+                            value={user.email}
+                            // readOnly
 
                             className="mt-1 p-2 rounded border border-gray-300 w-full"
                         />

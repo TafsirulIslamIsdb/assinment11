@@ -1,21 +1,23 @@
- //import { useContext } from "react";
-import {  NavLink } from "react-router-dom";
+
+import {  Link, NavLink } from "react-router-dom";
 import logo from '../../assets/As11 (1).png'
-//import { AuthContext } from "../providers/AuthProvider";
+import { useContext } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+
  
 
 const Navbar = () => {
 
     
 
-    //  const { user, logOut } = useContext(AuthContext);
+     const { user, logOut } = useContext(AuthContext);
     
 
-    //  const handleSignOut = () => {
-    //     logOut()
-    //         .then()
-    //         .catch()
-    // }
+     const handleSignOut = () => {
+        logOut()
+            .then()
+            .catch()
+    }
 
 
     const navLinks = <>
@@ -25,7 +27,7 @@ const Navbar = () => {
         <li className="text-slate-300-500"><NavLink to="/mybids">My Bids</NavLink></li>
         <li className="text-slate-300-500"><NavLink to="bidrequest">Bid Request</NavLink></li>
         <li className="text-slate-300-500"><NavLink to="/login">Login</NavLink></li>
-        <li className="text-slate-300-500"><NavLink to="/register">Register</NavLink></li>
+        {/* <li className="text-slate-300-500"><NavLink to="/register">Register</NavLink></li> */}
     </>
 
     return (
@@ -52,7 +54,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-end">
 
-                 {/* {
+                 {
                     user ?
                         <div className="flex gap-1 items-center">
 
@@ -65,7 +67,7 @@ const Navbar = () => {
                         <Link to="/login">
                             <button className="btn">Login</button>
                         </Link>
-                }  */}
+                } 
             </div>
         </div>
     );
