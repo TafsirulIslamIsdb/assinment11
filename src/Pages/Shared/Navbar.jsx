@@ -21,10 +21,11 @@ const Navbar = () => {
     const navLinks = <>
         <li className="text-slate-300-500"><NavLink to="/">Home</NavLink></li>
         <li className="text-slate-300-500"><NavLink to="/addjobs">AddJobs</NavLink></li>
-        <li className="text-slate-300-500"><NavLink to="/carts">My Posted Jobs</NavLink></li>
-        <li className="text-slate-300-500"><NavLink to="/register">My Bids</NavLink></li>
-        <li className="text-slate-300-500"><NavLink to="/login">Bid Request</NavLink></li>
+        <li className="text-slate-300-500"><NavLink to="/myjobs">My Posted Jobs</NavLink></li>
+        <li className="text-slate-300-500"><NavLink to="/mybids">My Bids</NavLink></li>
+        <li className="text-slate-300-500"><NavLink to="bidrequest">Bid Request</NavLink></li>
         <li className="text-slate-300-500"><NavLink to="/login">Login</NavLink></li>
+        <li className="text-slate-300-500"><NavLink to="/register">Register</NavLink></li>
     </>
 
     return (

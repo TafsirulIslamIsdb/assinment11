@@ -2,6 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layout/Root";
 import ErrorPage from "../Pages/Shared/ErrorPage";
 import Home from "../Pages/Home/Home";
+import Addjob from "../Pages/Addjobs/Addjob";
+import Login from "../Pages/Login/Login";
+import Register from "../Pages/Register/Register";
 
 
 
@@ -21,7 +24,19 @@ const router = createBrowserRouter([
             }, 
             {
                 path: '/addjobs',
-                element:<Home></Home>, 
+                element:<Addjob></Addjob>, 
+                
+                
+            }, 
+            {
+                path: '/login',
+                element:<Login></Login>, 
+                
+                
+            }, 
+            {
+                path: '/register',
+                element:<Register></Register>, 
                 
                 
             }, 
