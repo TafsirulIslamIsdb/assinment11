@@ -123,8 +123,8 @@ const Update = () => {
                     />
                 </div>
                 <div>
-                    <button type="submit" className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
-                        Update Job
+                    <button type="submit" className="bg-blue-400 text-white p-2 rounded hover:bg-blue-600">
+                        UpdateJob
                     </button>
                 </div>
             </form>
