@@ -8,7 +8,7 @@ import Jobcard from './Jobcard';
 
 
 const Home = () => {
-    // const [webDevelopmentJobs, setWebDevelopmentJobs] = useState([]);
+    //const [selectedCategory, setSelectedCategory] = useState('Web Development');
     // const [digitalMarketingJobs, setDigitalMarketingJobs] = useState([]);
     // const [graphicsDesignJobs, setGraphicsDesignJobs] = useState([]);
 
@@ -24,8 +24,10 @@ const Home = () => {
 
        
     }, [])
-    console.log(alljobs);
-    // console.log(webDevelopmentJobs);
+    console.log('kncikcjn',alljobs);
+
+    const filteredJobs = alljobs.filter((job) => job.category === 'Web Development');
+     console.log("tafsirul data",filteredJobs);
 
     return (
         <div>

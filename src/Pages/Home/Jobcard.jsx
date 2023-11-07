@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
 const Jobcard = ({ job }) => {
-    const {  jobTitle, description, deadline, minPrice, maxPrice } = job || {};
+    const { _id, jobTitle, email,description, deadline, minPrice, maxPrice } = job || {};
     console.log(job);
     return (
         <div >
@@ -17,7 +18,7 @@ const Jobcard = ({ job }) => {
                    
                     
                     <div className="card-actions">
-                        <button className="btn btn-primary">Bid Now</button>
+                    <Link to={`/jobsdetails/${_id,email}`}> <button className="btn btn-primary">Bid Now</button></Link>
                     </div>
                 </div>
             </div>
@@ -26,7 +27,9 @@ const Jobcard = ({ job }) => {
 };
 
 export default Jobcard;
-
+{/* <Link to={`/update/${_id}`}>
+                            <button className="btn btn-secondary">Update</button>
+                        </Link> */}
 //const { _id, email, jobTitle, description, category, minPrice, maxPrice } = job || {};
 // Job title
 // ○ Deadline

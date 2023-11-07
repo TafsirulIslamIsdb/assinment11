@@ -7,6 +7,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import Myjobs from "../Pages/Myjobs/Myjobs";
 import Update from "../Pages/Myjobs/Update";
+import PrivateRoute from "./PrivateRouter";
 
 
 
@@ -26,13 +27,19 @@ const router = createBrowserRouter([
             }, 
             {
                 path: '/addjobs',
-                element:<Addjob></Addjob>, 
+                element:<PrivateRoute><Addjob></Addjob></PrivateRoute>, 
                 
                 
             }, 
             {
                 path: '/myjobs',
-                element:<Myjobs></Myjobs>, 
+                element:<PrivateRoute><Myjobs></Myjobs></PrivateRoute>, 
+                
+                
+            }, 
+            {
+                path: '/jobsdetails/:id',
+                element:<PrivateRoute><Myjobs></Myjobs></PrivateRoute>, 
                 
                 
             }, 
@@ -40,6 +47,18 @@ const router = createBrowserRouter([
                 path: '/update/:id',
                 element:<Update></Update>, 
                 loader: ({ params }) => fetch(`http://localhost:5001/jobs/${params.id}`)
+                
+                
+            }, 
+            {
+                path: '/mybids',
+                element:<PrivateRoute><Myjobs></Myjobs></PrivateRoute>, 
+                
+                
+            }, 
+            {
+                path: '/bidrequest',
+                element:<PrivateRoute><Myjobs></Myjobs></PrivateRoute>, 
                 
                 
             }, 

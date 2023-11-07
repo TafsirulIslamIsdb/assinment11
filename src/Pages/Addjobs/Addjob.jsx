@@ -1,11 +1,15 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
+import { useNavigate } from "react-router-dom";
+//import { Navigate } from "react-router-dom";
 //import { Navigate } from "react-router-dom";
 
 
 const Addjob = () => {
     const { user } = useContext(AuthContext);
+
+    const navigate=useNavigate()
     
    
 
@@ -39,12 +43,14 @@ const Addjob = () => {
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
+                    navigate( '/myjobs');
                     Swal.fire({
                         title: 'Success!',
                         text: 'Jobs Added Successfully',
                         icon: 'success',
                         confirmButtonText: 'yes'
                     })
+                  
                 }
                 
                // Navigate( location?.state ? location.state :'/myjobs');
