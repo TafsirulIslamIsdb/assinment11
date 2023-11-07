@@ -30,7 +30,7 @@ const Distenctjob = ({ job,  myjobs ,setmyjobs,}) => {
                         if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
-                                'Your product has been deleted.',
+                                'Job has been deleted.',
                                 'success'
                             )
                             const remaining = myjobs.filter(job => job._id !== _id);
