@@ -1,9 +1,12 @@
 
 
+
 const Mybids = () => {
+    
+    
     return (
         <div>
-            <h2>This is my bids page</h2>
+            <h2>this is Bid request pages</h2>
         </div>
     );
 };

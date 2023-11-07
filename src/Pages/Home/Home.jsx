@@ -4,30 +4,33 @@ import crols2 from '../../assets/creative-nerd-logo-template_23-2149217528 (1).j
 import crols3 from '../../assets/digital1.png'
 
 import Jobcard from './Jobcard';
+import Services1 from '../../Component/Services1';
+import Services2 from '../../Component/Services2';
+import Services3 from '../../Component/Services3';
 
 
 
 const Home = () => {
-    //const [selectedCategory, setSelectedCategory] = useState('Web Development');
-    // const [digitalMarketingJobs, setDigitalMarketingJobs] = useState([]);
-    // const [graphicsDesignJobs, setGraphicsDesignJobs] = useState([]);
+    const [activeButton, setActiveButton] = useState(0);
+
+
+    const handleButtonClick = (index) => {
+        setActiveButton(index);
+    };
 
     const [alljobs, setalljobs] = useState([]);
-    //const [selectedjobs, setselectedjobs] = useState([]);
-    // fetch(`http://localhost:5001/jobs?email=${user?.email}`)
-
     useEffect(() => {
         fetch('http://localhost:5001/jobs')
             .then(res => res.json())
             .then(data => setalljobs(data))
 
 
-       
+
     }, [])
-    console.log('kncikcjn',alljobs);
+
 
     const filteredJobs = alljobs.filter((job) => job.category === 'Web Development');
-     console.log("tafsirul data",filteredJobs);
+    console.log("tafsirul data", filteredJobs);
 
     return (
         <div>
@@ -44,10 +47,67 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                {
-                    alljobs.map(job=><Jobcard key={job._id} job={job}></Jobcard>)
-                }
+            <div >
+
+                <div>
+                    <div
+                        className="button-container  "
+                        style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            gap: "20px",
+                            marginTop: "100px",
+                            marginBottom: "100px",
+                        }}
+                    >
+                        <button
+                            className={` btn btn-primary text-white  radius-30 ${activeButton === 0 ? "active" : ""
+                                }`}
+                            onClick={() => handleButtonClick(0)}
+                        >
+                            Web Development
+                        </button>
+                        <button
+                            className={`btn btn-primary text-white radius-30 ${activeButton === 1 ? "active" : ""
+                                }`}
+                            onClick={() => handleButtonClick(1)}
+                        >
+                            Graphics Design
+                        </button>
+                        <button
+                            className={`btn btn-primary text-white ${activeButton === 2 ? "active" : ""
+                                }`}
+                            onClick={() => handleButtonClick(2)}
+                        >
+                            
+                            Digital Marketing
+                        </button>
+
+
+
+                    </div>
+                    <div className="content-container">
+                        {activeButton === 0 && (
+                            <div>
+                                <Services1></Services1>
+                            </div>
+                        )}
+                        {activeButton === 1 && (
+                            <div>
+                                <Services2></Services2>
+                            </div>
+                        )}
+                        {activeButton === 2 && (
+                            <div>
+                                <Services3></Services3>
+                            </div>
+                        )}
+
+
+
+                    </div>
+
+                </div>
             </div>
 
 

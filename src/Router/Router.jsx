@@ -8,6 +8,8 @@ import Register from "../Pages/Register/Register";
 import Myjobs from "../Pages/Myjobs/Myjobs";
 import Update from "../Pages/Myjobs/Update";
 import PrivateRoute from "./PrivateRouter";
+import Mybids from "../Pages/Mybids/Mybids";
+import Bidrequest from "../Pages/Bidrequest/Bidrequest";
 
 
 
@@ -52,13 +54,13 @@ const router = createBrowserRouter([
             }, 
             {
                 path: '/mybids',
-                element:<PrivateRoute><Myjobs></Myjobs></PrivateRoute>, 
+                element:<PrivateRoute><Mybids></Mybids></PrivateRoute>, 
                 
                 
             }, 
             {
                 path: '/bidrequest',
-                element:<PrivateRoute><Myjobs></Myjobs></PrivateRoute>, 
+                element:<PrivateRoute><Bidrequest></Bidrequest></PrivateRoute>, 
                 
                 
             }, 
