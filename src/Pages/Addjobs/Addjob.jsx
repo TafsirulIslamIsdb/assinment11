@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
+//import { Navigate } from "react-router-dom";
 
 
 const Addjob = () => {
@@ -12,21 +13,24 @@ const Addjob = () => {
         event.preventDefault();
 
         const form = event.target;
-        const employerEmail = form.employerEmail.value;
-        console.log(employerEmail);
+        const email = form.employerEmail.value;
+       // console.log(email);
         const jobTitle = form.jobTitle.value;
         const description = form.description.value;
         const category = form.category.value;
+        const deadline = form.deadline.value;
+
         const minPrice = form.minPrice.value;
         const maxPrice = form.maxPrice.value;
 
-        const newJobs = {employerEmail , jobTitle, description, category, minPrice, maxPrice }
+        const newJobs = {email , jobTitle, description, deadline,category, minPrice, maxPrice }
 
         console.log(newJobs);
 
-        fetch(' http://localhost:5001/addjobs', {
+        fetch('http://localhost:5001/jobs', {
             method: 'POST',
             headers: {
+                
                 'content-type': 'application/json'
             },
             body: JSON.stringify(newJobs)
@@ -42,6 +46,8 @@ const Addjob = () => {
                         confirmButtonText: 'yes'
                     })
                 }
+                
+               // Navigate( location?.state ? location.state :'/myjobs');
             })
     }
     return (
@@ -55,8 +61,8 @@ const Addjob = () => {
                         <input
                             type="text"
                             name="employerEmail"
-                            value={user.email}
-                            // readOnly
+                            value={user?.email}
+                             readOnly
 
                             className="mt-1 p-2 rounded border border-gray-300 w-full"
                         />

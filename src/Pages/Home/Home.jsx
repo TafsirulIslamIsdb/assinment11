@@ -1,9 +1,32 @@
+import { useEffect, useState } from 'react';
 import crols1 from '../../assets/As11 (1).png'
 import crols2 from '../../assets/creative-nerd-logo-template_23-2149217528 (1).jpg'
 import crols3 from '../../assets/digital1.png'
 
+import Jobcard from './Jobcard';
+
+
 
 const Home = () => {
+    // const [webDevelopmentJobs, setWebDevelopmentJobs] = useState([]);
+    // const [digitalMarketingJobs, setDigitalMarketingJobs] = useState([]);
+    // const [graphicsDesignJobs, setGraphicsDesignJobs] = useState([]);
+
+    const [alljobs, setalljobs] = useState([]);
+    //const [selectedjobs, setselectedjobs] = useState([]);
+    // fetch(`http://localhost:5001/jobs?email=${user?.email}`)
+
+    useEffect(() => {
+        fetch('http://localhost:5001/jobs')
+            .then(res => res.json())
+            .then(data => setalljobs(data))
+
+
+       
+    }, [])
+    console.log(alljobs);
+    // console.log(webDevelopmentJobs);
+
     return (
         <div>
 
@@ -19,6 +42,12 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {
+                    alljobs.map(job=><Jobcard key={job._id} job={job}></Jobcard>)
+                }
+            </div>
+
 
             <div className='bg-gray-200'>
                 <section className="text-gray-600 body-font">
@@ -26,21 +55,21 @@ const Home = () => {
                         <div className="text-center mb-20">
                             <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">You may want to know</h1>
                             <p className="text-base leading-relaxed xl:w-2/4 lg:w-3/4 mx-auto text-gray-500s">WE offers a wide range of features to cater to both job seekers and employers.
-                             Here are some key features commonly found in such platforms:</p>
+                                Here are some key features commonly found in such platforms:</p>
                             <div className="flex mt-6 justify-center">
                                 <div className="w-16 h-1 rounded-full bg-yellow-500 inline-flex"></div>
                             </div>
                         </div>
                         <div className="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
                             <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
-                            <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-5 flex-shrink-0">
+                                <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-5 flex-shrink-0">
                                     <img className='w-20 h-20 rounded-full' src={crols1} alt="" />
                                 </div>
-                               
+
                                 <div className="flex-grow">
                                     <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Job Posting:</h2>
                                     <p className="leading-relaxed text-base"> Easy job posting process with the ability to specify job details,
-                                     requirements, and application procedures.</p>
+                                        requirements, and application procedures.</p>
                                     <a className="mt-3 text-yellow-500 inline-flex items-center">Learn More
                                         <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" className="w-4 h-4 ml-2" viewBox="0 0 24 24">
                                             <path d="M5 12h14M12 5l7 7-7 7"></path>
@@ -50,7 +79,7 @@ const Home = () => {
                             </div>
                             <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
                                 <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-5 flex-shrink-0">
-                                <img className='w-20 h-20 rounded-full' src={crols2} alt="" />
+                                    <img className='w-20 h-20 rounded-full' src={crols2} alt="" />
                                 </div>
                                 <div className="flex-grow">
                                     <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Resume Database</h2>
@@ -64,7 +93,7 @@ const Home = () => {
                             </div>
                             <div className="p-4 md:w-1/3 flex flex-col text-center items-center">
                                 <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-yellow-100 text-yellow-500 mb-5 flex-shrink-0">
-                                <img className='w-20 h-20 rounded-full' src={crols3} alt="" />
+                                    <img className='w-20 h-20 rounded-full' src={crols3} alt="" />
                                 </div>
                                 <div className="flex-grow">
                                     <h2 className="text-gray-900 text-lg title-font font-medium mb-3">Employer Branding</h2>
