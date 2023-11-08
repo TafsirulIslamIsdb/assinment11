@@ -108,7 +108,11 @@ const Jobdetails = () => {
                     </div>
 
 
-                    <button type="submit" disabled={user.email === email} className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
+                    <button type="submit" disabled={user.email === email ||deadline===Date.now()} 
+
+                   
+                    
+                    className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600">
                         Add Job
                     </button>
 
