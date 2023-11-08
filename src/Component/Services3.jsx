@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Services3 = () => {
     const [alljobs, setalljobs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5001/jobs')
+        fetch('https://b8a11-server-side-opal.vercel.app/jobs')
             .then(res => res.json())
             .then(data => setalljobs(data))
 

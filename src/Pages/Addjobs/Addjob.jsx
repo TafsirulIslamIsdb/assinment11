@@ -31,7 +31,7 @@ const Addjob = () => {
 
         console.log(newJobs);
 
-        fetch('http://localhost:5001/jobs', {
+        fetch('https://b8a11-server-side-opal.vercel.app/jobs', {
             method: 'POST',
             headers: {
                 

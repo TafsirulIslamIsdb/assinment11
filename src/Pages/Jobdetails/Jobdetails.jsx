@@ -25,7 +25,7 @@ const Jobdetails = () => {
 
         console.log(newJobs);
 
-        fetch('http://localhost:5001/mybids', {
+        fetch('https://b8a11-server-side-opal.vercel.app/mybids', {
             method: 'POST',
             headers: {
 

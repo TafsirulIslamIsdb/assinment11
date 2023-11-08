@@ -8,7 +8,7 @@ const Mybids = () => {
     const { user } = useContext(AuthContext);
     const [alljobs, setalljobs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5001/mybids')
+        fetch('https://b8a11-server-side-opal.vercel.app/mybids')
             .then(res => res.json())
             .then(data => setalljobs(data))
 

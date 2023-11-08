@@ -19,7 +19,7 @@ const Distenctjob = ({ job,  myjobs ,setmyjobs,}) => {
             if (result.isConfirmed) {
 
 
-                fetch(` http://localhost:5001/jobs/${_id}`, {
+                fetch(` https://b8a11-server-side-opal.vercel.app/jobs/${_id}`, {
                     
                     method: 'DELETE'
                    

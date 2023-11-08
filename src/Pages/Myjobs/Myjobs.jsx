@@ -7,9 +7,9 @@ const Myjobs = () => {
     const { user } = useContext(AuthContext);
     const [myjobs, setmyjobs] = useState([]);
 
-    // const url =`http://localhost:5001/myjobs?email=${user.email}`;
+    // const url =`https://b8a11-server-side-opal.vercel.app/myjobs?email=${user.email}`;
     useEffect(() => {
-        fetch(`http://localhost:5001/jobs?email=${user?.email}`)
+        fetch(`https://b8a11-server-side-opal.vercel.app/jobs?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setmyjobs(data))
     }, [user?.email])

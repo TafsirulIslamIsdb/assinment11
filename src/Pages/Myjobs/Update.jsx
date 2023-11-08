@@ -23,7 +23,7 @@ const Update = () => {
         const updatedjob = {  email, jobTitle, description, category, minPrice, maxPrice }
 
         console.log(updatedjob);
-        fetch(` http://localhost:5001/jobs/${_id}`, {
+        fetch(` https://b8a11-server-side-opal.vercel.app/jobs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
